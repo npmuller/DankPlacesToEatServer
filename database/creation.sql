@@ -65,7 +65,6 @@ create table if not exists restaurant_rating (
     rating FLOAT NOT NULL,
     user_id INT NULL,
     last_updated_ts DATETIME NOT NULL,
-    PRIMARY KEY (id)
 );
 
 create table if not exists users (
