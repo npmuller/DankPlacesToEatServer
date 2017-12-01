@@ -1,5 +1,6 @@
 -- drop database dank;
 create database if not exists dank;
+use dank;
 
 create table if not exists foreign_host (
     id INT NOT NULL AUTO_INCREMENT,
