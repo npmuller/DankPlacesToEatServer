@@ -4,6 +4,7 @@ var router = express.Router();
 
 // Models
 // e.g. var deviceRoutes = require('./devices.js');
+var restaurantRoutes = require('./restaurants.js');
 
 // Log every incoming request
 router.use(function(req, res, next) {
@@ -16,7 +17,10 @@ router.use(function(req, res, next) {
  * Route Definitions
  * 
  *******************************************************/
-// Brew Settings
+// Restaurant operations
+router.use('/restaurants', restaurantRoutes);
+
+// User settings
 // e.g. router.use('/devices', deviceRoutes);
 
 module.exports = router;
