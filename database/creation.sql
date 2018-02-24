@@ -1,4 +1,4 @@
--- drop database dank;
+-- drop database if exists dank;
 create database if not exists dank;
 use dank;
 

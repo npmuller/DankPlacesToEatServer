@@ -4,6 +4,7 @@ var collections = require('../models/collections.js');
 var models = require('../models/models.js');
 
 // Get all restaurants
+// TODO : build json in expected format
 router.route('/').get(function (req, res) {
     console.info('Got request for all restaurants!');
     collections.restaurants.forge()
