@@ -12,7 +12,7 @@ var config = require('./config/config.json')[env];
 var app = express();
 
 // Set up routing
-app.use('/dpe/api', routes);
+app.use('/dank/api', routes);
 
 // Start the server
 app.listen(config.port, function() {

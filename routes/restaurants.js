@@ -1,21 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var collections = require('../models/collections.js');
-var models = require('../models/models.js');
+var database = require('../database/database.js');
+// var collections = require('../models/collections.js');
+// var models = require('../models/models.js');
 
-// Get all restaurants
-// TODO : build json in expected format
-router.route('/').get(function (req, res) {
-    console.info('Got request for all restaurants!');
-    collections.restaurants.forge()
-    .fetch()
-    .then(function (collection) {
-        res.json({restaurants: collection.toJSON()});
+// Get all nearby restaurants
+router.route('/getByDistance').get(function (req, res) {
+    var centerLat = req.body.centerLat;
+    var centerLon = req.body.centerLon;
+    var radiusMi = req.body.radiusMi;
+    console.debug('Got request for all restaurants within' + radiusMi + ' of ' + centerLat + ', ' + centerLon);
+    var knex = database.knex;
+    knex.raw('call sp_get_restaurants_by_distance('
+        + centerLat + ', '
+        + centerLon + ', '
+        + radiusMi + ');'
+    ).then(function(result) {
+        res.json(result);
     })
-    .catch(function (err) {
-        console.error('Error getting restaurants! ' + err.message);
-        res.status(500).json({message: err.message});
-    });
 });
 
 // Get a particular restaurant
