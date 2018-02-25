@@ -16,8 +16,11 @@ router.route('/getByDistance').get(function (req, res) {
         + centerLon + ', '
         + radiusMi + ');'
     ).then(function(result) {
+        // TODO : will .json(string) work?
         res.json(result);
-    })
+    }).catch(function(err) {
+        res.status(404).json({error: true, message: err.message});
+    });
 });
 
 // Get a particular restaurant
