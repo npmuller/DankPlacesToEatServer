@@ -1,4 +1,4 @@
-scripts/ssh_server.sh
+scripts/
 node_modules
 config/config.json
 database/data
