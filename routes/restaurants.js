@@ -4,6 +4,11 @@ var database = require('../database/database.js');
 // var collections = require('../models/collections.js');
 // var models = require('../models/models.js');
 
+// NPM TEST TODO REMOVE
+router.route('/').get(function(req, res) {
+    res.send("Hello, Dank people!");
+});
+
 // Get all nearby restaurants
 router.route('/getByDistance').get(function (req, res) {
     var centerLat = req.body.centerLat;
@@ -43,3 +48,5 @@ router.route('/:id').get(function(req, res) {
         res.status(500).json({message: err.message});
     });
 });
+
+module.exports = router;

@@ -22,5 +22,14 @@
   "bugs": {
     "url": "https://github.com/npmuller/DankPlacesToEatServer/issues"
   },
-  "homepage": "https://github.com/npmuller/DankPlacesToEatServer#readme"
+  "homepage": "https://github.com/npmuller/DankPlacesToEatServer#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bookshelf": "^0.10.3",
+    "express": "^4.15.2",
+    "knex": "^0.12.9",
+    "lodash": "^4.17.4",
+    "mysql": "^2.13.0",
+    "when": "^3.7.8"
+  }
 }
