@@ -10,7 +10,7 @@ router.route('/').get(function(req, res) {
 });
 
 // Get all nearby restaurants
-router.route('/getByDistance').get(function (req, res) {
+router.route('/getByDistance').post(function (req, res) {
     var centerLat = req.body.centerLat;
     var centerLon = req.body.centerLon;
     var radiusMi = req.body.radiusMi;
@@ -22,6 +22,8 @@ router.route('/getByDistance').get(function (req, res) {
         + radiusMi + ');'
     ).then(function(result) {
         // TODO : will .json(string) work?
+        console.info("nate nate nate");
+        console.info("result is " + result);
         res.json(result);
     }).catch(function(err) {
         res.status(404).json({error: true, message: err.message});
